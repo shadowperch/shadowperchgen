@@ -4,7 +4,16 @@
         "strings": [
             "Looks forward to {PRONOUN/m_c/poss} apprenticeship",
             "Wants to see the whole territory",
-            "Asks to go out on {PRONOUN/m_c/poss} first patrol"
+            "Asks to go out on {PRONOUN/m_c/poss} first patrol",
+            "Can't wait to see the world outside of camp",
+            "Trips immediately after {PRONOUN/m_c/poss} ceremony",
+            "Is mesmerized by how big the world beyond camp is",
+            "Admires the territory",
+            "Hopes to do well as an apprentice",
+            "Doesn't know if {PRONOUN/m_c/subject} {VERB/m_c/are/is} making the right choice...",
+            "Has something on {PRONOUN/m_c/poss} mind...",
+            "Lets it sink in that {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} finally an apprentice",
+            "Daydreams about {PRONOUN/m_c/poss} future"
         ],
         "involved_cats": {
             "m_c": {
@@ -17,12 +26,102 @@
         }
     },
     {
+        "event_id": "becoming_apprentice_unhealthy",
+        "strings": [
+            "Grumbles about spending the first day of {PRONOUN/m_c/poss} apprenticeship in camp",
+            "Wishes {PRONOUN/m_c/subject} could go tour the territory...",
+            "Struggles to stay awake during {PRONOUN/m_c/poss} ceremony",
+            "Insists that {PRONOUN/m_c/subject} can handle training despite {PRONOUN/m_c/poss} condition"
+        ],
+        "involved_cats": {
+            "m_c": {
+                "status": [
+                    "apprentice",
+                    "mediator apprentice",
+                    "medicine cat apprentice"
+                ],
+                "health": {
+                    "working": false
+                }
+            }
+        }
+    },
+    {
+        "event_id": "becoming_apprentice_unhealthy_to_healthy_littermate",
+        "strings": [
+            "Finds it <i>so</i> unfair that r_c isn't laid up too",
+            "Begrudgingly listens to r_c talk about the world beyond camp",
+            "Musters up the will to be happy for r_c despite being stuck in camp",
+            "Tells r_c to teach {PRONOUN/m_c/object} everything {PRONOUN/r_c/subject} {VERB/r_c/learn/learns} so {PRONOUN/m_c/subject} can catch up",
+            "Feels a pang of envy listening to r_c talk about {PRONOUN/r_c/poss} first day as an apprentice",
+            "Tries not to bring down the mood while listening to r_c talk about what {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} missing out on"
+        ],
+        "involved_cats": {
+            "m_c": {
+                "status": [
+                    "apprentice",
+                    "mediator apprentice",
+                    "medicine cat apprentice"
+                ],
+                "health": {
+                    "working": false
+                }
+            },
+            "r_c": {
+                "status": [
+                    "apprentice",
+                    "mediator apprentice",
+                    "medicine cat apprentice"
+                ],
+                "health": {
+                    "working": true
+                }
+            }
+        },
+        "relationship_constraint": [
+            {
+                "cats_from": ["m_c"],
+                "cats_to": ["r_c"],
+                "mutual": true,
+                "constraints": ["littermates"]
+            }
+        ]
+    },
+    {
+        "event_id": "becoming_apprentice_cough",
+        "strings": [
+            "Kept coughing during {PRONOUN/m_c/poss} apprentice ceremony",
+            "Curses {PRONOUN/m_c/poss} luck at spending the first day of {PRONOUN/m_c/poss} apprenticeship sick",
+            "Insists that {PRONOUN/m_c/subject} can handle training despite {PRONOUN/m_c/poss} illness",
+            "Insists that {PRONOUN/m_c/subject} can handle training, but can't stop coughing"
+        ],
+        "involved_cats": {
+            "m_c": {
+                "status": [
+                    "apprentice",
+                    "mediator apprentice",
+                    "medicine cat apprentice"
+                ],
+                "health": {
+                    "condition": [
+                        "kittencough",
+                        "whitecough",
+                        "yellowcough",
+                        "greencough",
+                        "redcough"
+                    ]
+                }
+            }
+        }
+    },
+    {
         "event_id": "becoming_warrior_apprentice",
         "strings": [
             "Wants to go see the borders",
             "Wants to learn to hunt right away",
             "Wants to learn to fight right away",
-            "Rushes off to make a nest in the apprentices' den"
+            "Rushes off to make a nest in the apprentices' den",
+            "Asks to go out on {PRONOUN/m_c/poss} first patrol"
         ],
         "involved_cats": {
             "m_c": {
@@ -67,7 +166,11 @@
         "strings": [
             "Wants to learn everything r_c knows",
             "Can't wait to start training with r_c",
-            "Asks r_c a dozen questions about training"
+            "Asks r_c a dozen questions about training",
+            "Isn't sure that r_c should be {PRONOUN/m_c/poss mentor...",
+            "Hopes to live up to r_c's expectations",
+            "Hopes r_c will be a cool mentor",
+            "Hopes r_c will like being {PRONOUN/m_c/poss} mentor"
         ],
         "relationship_constraint": [
             {
@@ -135,7 +238,18 @@
                     "mediator apprentice"
                 ],
                 "stat": {
-                    "trait": ["arrogant", "confident", "competitive", "ambitious", "bold", "daring", "shameless", "flamboyant", "fierce", "adventurous"]
+                    "trait": [
+                        "arrogant",
+                        "confident",
+                        "competitive",
+                        "ambitious",
+                        "bold",
+                        "daring",
+                        "shameless",
+                        "flamboyant",
+                        "fierce",
+                        "adventurous"
+                    ]
                 }
             }
         }
@@ -155,9 +269,14 @@
                     "mediator apprentice"
                 ],
                 "past_status": [
-                    "rogue", "kittypet", "loner"
+                    "rogue",
+                    "kittypet",
+                    "loner"
                 ],
-                "backstory": ["-abandoned_backstories", "-orphaned2"]
+                "backstory": [
+                    "-abandoned_backstories",
+                    "-orphaned2"
+                ]
             }
         }
     },
